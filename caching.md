@@ -90,3 +90,49 @@ Distributed caching is divided into two methods
 
 
 
+
+### LRU Cache pseudo-code
+
+```javascript
+    var  cache = {}
+    var currentSize =0;
+    var maxSize ;
+    var mostRecent = DoublyLinkList();
+
+    function insertKeyvaluepair(key ,value){
+            if(!key in cache){
+              if (currentSize == maxSize){
+                      evictleastrecent();
+              }else{
+                      currentSize +=1;
+                      cache[key] = DoublyLinkList(key,value);
+              }
+      }else{
+              replacekey(key,value);
+      }
+       updatemostrecent(cache[key]); 
+    }
+
+     function replacekey(key ,value){
+           cache[key] = value;  
+     }
+     function evictleastrecent(){
+        let keytoremove = mostRecent.tail.key;
+        mostRecent.removetail();
+        delete cache[keytoremove];
+     }
+     function updatemostrecent(node){
+             mostRecent.unshift(node);
+     }
+     function getvaluefromkey(key){
+             if(!key in  cache) return null;
+             updatemostrecent(cache[key]);
+             return cache[key].value;          
+    }
+
+    function getmostrecent(){
+            return mostRecent.head.key;
+    }
+
+  }
+```
