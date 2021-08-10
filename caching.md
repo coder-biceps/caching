@@ -136,3 +136,19 @@ Distributed caching is divided into two methods
 
   }
 ```
+
+
+####  Reference Links
+
+ [Geeks for Geeks](https://www.geeksforgeeks.org/locality-of-reference-and-cache-operation-in-cache-memory/)
+
+
+ [Medium](https://medium.com/rtkal/distributed-cache-design-348cbe334df1)
+
+ 
+ [aws-amazon](https://aws.amazon.com/caching/)
+
+
+
+
+
